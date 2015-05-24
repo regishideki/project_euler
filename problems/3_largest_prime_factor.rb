@@ -7,20 +7,19 @@
 
 number = 600851475143
 
-def factors_of(number)
+def last_prime_factor_of(number)
   i = 2
   factors = []
 
   while i <= number
     if number % i == 0
-      factors << i
       number = number / i
+    else
+      i = i + 1
     end
-    
-    i = i + 1
   end
 
-  factors
+  i
 end
 
-puts factors_of(number)[-1]
+puts last_prime_factor_of(number)
