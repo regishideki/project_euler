@@ -11,14 +11,4 @@ def palindrome?(number)
   string_number == string_number.reverse
 end
 
-max_palindrome = 1
-(100..999).each do |n1|
-  (n1..999).each do |n2|
-    n = n1 * n2
-    if palindrome?(n) && n > max_palindrome
-      max_palindrome = n
-    end
-  end
-end
-
-puts max_palindrome
+puts ((100..999).flat_map { |n1| (n1..999).map { |n2| n1 * n2 } }).select { |n| palindrome?(n) }.max
